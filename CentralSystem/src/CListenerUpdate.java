@@ -11,6 +11,13 @@ public class CListenerUpdate extends CBaseListener {
 	private String type;
 	private Token typeToken;
 	
+	/**
+	 * Used for updating the type of an expression
+	 * 
+	 * @param parser
+	 * @param type
+	 * @param typeToken
+	 */
 	public CListenerUpdate(CParser parser, String type, Token typeToken){
 		super(parser);
 		this.parser = parser;
@@ -29,9 +36,7 @@ public class CListenerUpdate extends CBaseListener {
 	  	TokenStream ts = parser.getInputStream();
 	  	TokenStreamRewriter rewriter = new TokenStreamRewriter(ts);
 	  	rewriter.replace(index, type);
-	  	System.out.println("Final = " + rewriter.getText());
 	  	updatedLine = rewriter.getText();
-	  	System.out.println("token text" + token.getText());
 	  	ts.index();
 	  	updatedStream = rewriter.getTokenStream();
 	}

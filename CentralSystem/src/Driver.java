@@ -21,7 +21,7 @@ public class Driver {
 			int lineNumber = (int) Integer.parseInt(parsedSpecifics[2]);
 			
 			String inputFilePath = args[1];
-			String outputFilePath = args[2];
+			//String outputFilePath = args[2];
 			
 			String input = Files.readAllLines(Paths.get(inputFilePath)).get(lineNumber-1);
 			
@@ -40,7 +40,7 @@ public class Driver {
 				System.out.println(tree.toStringTree(parser));
 				
 				//getting the appropriate declarator type
-				CListenerType listenerType = new CListenerType(parser);
+				CListenerType listenerType = new CListenerType();
 				walker.walk(listenerType, tree);
 				String type = listenerType.getType();
 				Token typeToken = listenerType.getTypeToken();
@@ -79,7 +79,7 @@ public class Driver {
 			System.out.println(tree.toStringTree(parser));
 			
 			//getting the identifier
-			CListenerType listenerType = new CListenerType(parser);
+			CListenerType listenerType = new CListenerType();
 			walker.walk(listenerType, tree);
 			String identifier = listenerType.getIdentifier();
 			System.out.println(identifier);
