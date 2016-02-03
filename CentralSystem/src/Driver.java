@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,14 +19,15 @@ public class Driver {
 			if(bugDescription.equals( "Result of 'malloc' is converted to a pointer of type 'long'")){
 				System.out.println("Boo");
 			}
-			int lineNumber = (int) Integer.parseInt(parsedSpecifics[2]);
 			
 			String inputFilePath = args[1];
-			//String outputFilePath = args[2];
-			
-			String input = Files.readAllLines(Paths.get(inputFilePath)).get(lineNumber-1);
+			String outputFilePath = args[2];
 			
 			if(bugDescription.contains("Result of 'malloc' is converted to a pointer of type")){
+				int lineNumber = (int) Integer.parseInt(parsedSpecifics[2]);
+				//in this instance, because of a comma in the bug descriptor, relevant line numbers begin at index 2 in the parsed specifics array
+				String input = Files.readAllLines(Paths.get(inputFilePath)).get(lineNumber-1);
+				//
 				System.out.println(input);
 				ANTLRInputStream inputStream = new ANTLRInputStream(input);
 				// create a lexer that feeds off of input 
@@ -58,6 +60,10 @@ public class Driver {
 				text = partA + " " + partB;
 				//has trouble parsing declarationSpecifier along with rest of statement...
 				System.out.println(text);
+				
+				File inputFile = new File(inputFilePath);
+				File outputFile = new File(outputFilePath);
+				FileHandlingUtils.writeLineAt(inputFile, outputFile, text, lineNumber);
 			}
 			
 		}
