@@ -45,15 +45,31 @@ public class FileHandlingUtils {
 		return false;
 	}
 	
-	public static boolean insertLineAt(File input, File output, String lineInsert, int lineNumber) throws IOException{
+	/**
+	 * * Creates a duplicated version of 'input', however, at line 'lineNumber' 'input''s
+	 * line is over-written with 'lineReplacement' in the 'output' file.
+	 * 
+	 * Let lineNumber be N.
+	 * 
+	 * In the output file line N from input file becomes line N+1, with lineReplacement being the contents
+	 * of line N in the output file.
+	 * 
+	 * @param input
+	 * @param output
+	 * @param lineInsert
+	 * @param lineNumber
+	 * @return
+	 * @throws IOException
+	 */
+	public static boolean insertLineAt(File input, File output, String lineReplacement, int lineNumber) throws IOException{
 		FileWriter fw = new FileWriter(output);
 		int lineNo = 0;
 		try (BufferedReader br = new BufferedReader(new FileReader(input))){
 			String line="";
 			while((line = br.readLine())!=null){
-				if(lineNo == lineNumber){
+				if(lineNo == lineNumber-1){
+					fw.write(lineReplacement +"\n");
 					fw.write(line + "\n");
-					fw.write(lineInsert +"\n");
 				}
 				else{
 					fw.write(line + "\n");

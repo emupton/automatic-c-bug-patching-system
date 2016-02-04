@@ -94,7 +94,7 @@ public class Driver {
 				//in future iterations determine whitespace by obtaining chars before non-whitespace char and prefixing to fixed line...
 				lineNumber = (int)  Integer.parseInt(parsedSpecifics[parsedSpecifics.length-1]);
 				
-				FileHandlingUtils.writeLineAt(inputFile, outputFile, fixedLine, lineNumber);
+				FileHandlingUtils.insertLineAt(inputFile, outputFile, fixedLine, lineNumber);
 			}
 			
 		}
