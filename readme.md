@@ -4,7 +4,7 @@ Currently developing prototypes, code poorly documented
 
 The system is broken down into three sub-systems; a shell script, a bug report parser, and a central system.
 
-![System diagram](https://i.gyazo.com/ba2c73bd44df86bec1455e93a736bab9.png)
+![System diagram](https://gyazo.com/808bde9106f314df2d241b628e26be64)
 
 ## Shell script
 ### `/unified_script.sh`
