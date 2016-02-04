@@ -14,7 +14,7 @@ For example:
 
 	unified_script.sh  ~/bugs/program.c ~/bugs/misc_files ~/bugs/program_fix.c
 
-`~/bugs/program.c` is a .C file that the user suspects has some kind of bug. The shell script then makes a call to `scan-build` ([the clang static analyzer](http://clang-analyzer.llvm.org)) with `~/bugs/misc_files` as the output directory and `/bugs/program.c` as the file to be analysed.
+`~/bugs/program.c` is a .C file that the user suspects has some kind of bug. The shell script then makes a call to `scan-build` ([the clang static analyzer](http://clang-analyzer.llvm.org)) with `~/bugs/misc_files` as the output directory and `~/bugs/program.c` as the file to be analysed.
 
  If any bugs are detected in the .c file then a HTML file bug report will be outputted to the miscellaneous directory.
  
