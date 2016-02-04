@@ -33,7 +33,7 @@ public class CListenerType extends CBaseListener {
 	 * 
 	 * @param ctx
 	 */
-	public void enterPrimaryExpression(CParser.TypeSpecifierContext ctx) {
+	public void enterPrimaryExpression(CParser.PrimaryExpressionContext ctx) {
 		Token token = ctx.start;
 		identifier = token.getText();
 	}
