@@ -401,12 +401,12 @@ public class CBaseListener implements CListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	  public void enterTypeSpecifier(CParser.TypeSpecifierContext ctx) { System.out.println(ctx.getText());
+	  public void enterTypeSpecifier(CParser.TypeSpecifierContext ctx) { /*System.out.println(ctx.getText());
 	  	Token token = ctx.start;
 	  	token.getTokenIndex();
 	  	CharStream ts = token.getInputStream();
 	  	System.out.println("token text" + token.getText());
-	  	ts.index();
+	  	ts.index();*/
 	  }
 	/**
 	 * {@inheritDoc}
