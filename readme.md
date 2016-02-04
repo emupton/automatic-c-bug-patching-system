@@ -4,6 +4,8 @@ Currently developing prototypes, code poorly documented
 
 The system is broken down into three sub-systems; a shell script, a bug report parser, and a central system.
 
+![System diagram](https://i.gyazo.com/d049dec7b6212a62b28a68a0f4d10c7f.png)
+
 ## Shell script
 ### `/unified_script.sh`
 The shell script accepts three command-line input arguments: an input file location, a 'miscellaneous directory', and an output file location.
