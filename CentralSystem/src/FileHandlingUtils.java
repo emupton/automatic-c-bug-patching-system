@@ -44,4 +44,24 @@ public class FileHandlingUtils {
 		fw.close();
 		return false;
 	}
+	
+	public static boolean insertLineAt(File input, File output, String lineInsert, int lineNumber) throws IOException{
+		FileWriter fw = new FileWriter(output);
+		int lineNo = 0;
+		try (BufferedReader br = new BufferedReader(new FileReader(input))){
+			String line="";
+			while((line = br.readLine())!=null){
+				if(lineNo == lineNumber){
+					fw.write(line + "\n");
+					fw.write(lineInsert +"\n");
+				}
+				else{
+					fw.write(line + "\n");
+				}
+				lineNo++;
+			}
+		}
+		fw.close();
+		return false;
+	}
 }
