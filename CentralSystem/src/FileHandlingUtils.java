@@ -27,6 +27,7 @@ public class FileHandlingUtils {
 	public static boolean writeLineAt(File input, File output, String lineReplacement, int lineNumber) throws IOException{
 		FileWriter fw = new FileWriter(output);
 		int lineNo = 0;
+		System.out.println("Writing solution to: " + output.getAbsolutePath());
 		try (BufferedReader br = new BufferedReader(new FileReader(input))){
 			String line="";
 			while((line = br.readLine())!=null){
@@ -70,6 +71,25 @@ public class FileHandlingUtils {
 				if(lineNo == lineNumber-1){
 					fw.write(lineReplacement +"\n");
 					fw.write(line + "\n");
+				}
+				else{
+					fw.write(line + "\n");
+				}
+				lineNo++;
+			}
+		}
+		fw.close();
+		return false;
+	}
+	
+	public static boolean deleteLineAt(File input, File output, int lineNumber) throws IOException {
+		FileWriter fw = new FileWriter(output);
+		int lineNo = 0;
+		try (BufferedReader br = new BufferedReader(new FileReader(input))){
+			String line="";
+			while((line = br.readLine())!=null){
+				if(lineNo == lineNumber - 1){
+					//do nothing
 				}
 				else{
 					fw.write(line + "\n");

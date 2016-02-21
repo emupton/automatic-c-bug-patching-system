@@ -23,7 +23,7 @@ public class Driver {
 			
 			File inputFile = new File(inputFilePath);
 			File outputFile = new File(outputFilePath);
-			
+			System.out.println(outputFile.getAbsolutePath());
 			if(bugDescription.contains("Result of 'malloc' is converted to a pointer of type")){
 				int lineNumber = (int) Integer.parseInt(parsedSpecifics[2]);
 				//in this instance, because of a comma in the bug descriptor, relevant line numbers begin at index 2 in the parsed specifics array
@@ -97,6 +97,15 @@ public class Driver {
 				FileHandlingUtils.insertLineAt(inputFile, outputFile, fixedLine, lineNumber);
 			}
 			
+			if(bugDescription.contains("Opened file is never closed")){
+				//future iterations
+			}
+			if(bugDescription.contains("Attempt to free released memory")){
+				int lineNumber = (int) Integer.parseInt(parsedSpecifics[parsedSpecifics.length-1]);
+				System.out.println(lineNumber);
+				
+				FileHandlingUtils.deleteLineAt(inputFile, outputFile, lineNumber);
+			}
 		}
 		else{
 			//DEBUG/TESTING
