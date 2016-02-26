@@ -1,7 +1,9 @@
 PROBLEM_FILE=$1
 MISC_DIR=$2
+OUTPUT_FILE=$3
 
-OUTPUT=$(cppcheck $PROBLEM_FILE 2>&1)
-#Storing both STDERR and STDOUT output
+cppcheck $PROBLEM_FILE --xml 2>$OUTPUT_FILE
+#Storing STDERR to output_file
 
-echo $OUTPUT
+cppcheck $PROBLEM_FILE
+echo "Done"

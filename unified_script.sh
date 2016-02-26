@@ -4,7 +4,9 @@ MISC_DIR=$2 #Misc directory for files generated during the bug fixing process,
 OUTPUT_FILE=$3 #The output file directory
 PARSER="java -jar /users/emma/desktop/parser.jar " #Location of the parser.jar file
 CENTRAL_SYSTEM='/Users/emma/Desktop/Projects/FinalYear/fixBugAntlr/CentralSystem/src' #Location of the central system's directory
-/Applications/checker-277/scan-build -enable-checker alpha.unix.SimpleStream -o $MISC_DIR gcc -c $PROBLEM_FILE #Calling scan-build to detect bugs and output the file report .html files to MISC_DIR
+/Applications/checker-277/scan-build -o $MISC_DIR gcc -c $PROBLEM_FILE
+#-enable-checker alpha.unix.SimpleStream 
+#Calling scan-build to detect bugs and output the file report .html files to MISC_DIR
 cd $MISC_DIR
 x=$(ls -t $MISC_DIR | head -n 1)
 #getting the first directory that will contain releant problem report files, including the .html

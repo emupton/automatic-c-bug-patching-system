@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="1.72"/>
+    <errors>
+        <error id="resourceLeak" severity="error" msg="Resource leak: F" verbose="Resource leak: F" cwe="775">
+            <location file="/Users/emma/Desktop/Projects/FinalYear/fixBugAntlr/examples/simplestream/problemA.c" line="11"/>
+        </error>
+    </errors>
+</results>
